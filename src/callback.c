@@ -123,6 +123,8 @@ void cbButtonPatch(Ihandle* self)
 		if((log = fopen("log.txt","w")) == NULL)
 		{
 			IupMessage("Error","Can't open log file!");
+			fclose(src);
+			fclose(dst);
 			return;
 		}
 		fprintf(log,"Opened log file.\nOperating with source file %s.\nOperating with destination file %s.\nApplying patch.\n",
@@ -261,6 +263,9 @@ void cbButtonCreate(Ihandle* self)
 		if((log = fopen("log.txt","w")) == NULL)
 		{
 			IupMessage("Error","Can't open log file!");
+			fclose(src);
+			fclose(src2);
+			fclose(dst);
 			return;
 		}
 		fprintf(log,"Opened log file.\nOperating with source file %s.\nOperating with secondary source file %s.\nOperating with destination file %s.\nCreating patch.\n",
